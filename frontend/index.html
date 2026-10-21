@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Almacen | Sistema experto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">Sistema experto</p>
+      <h1>Decisiones de almacén</h1>
+      <p class="lead">Consulta ubicación, reposición y movimiento usando las reglas de Prolog.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="consulta-titulo">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Consulta controlada</p>
+          <h2 id="consulta-titulo">Selecciona un producto</h2>
+        </div>
+        <span id="status" class="status">Listo</span>
+      </div>
+      <form id="query-form">
+        <label for="product-id">ID del producto</label>
+        <div class="form-row">
+          <input id="product-id" name="id" type="number" min="1" max="20" value="1" required>
+          <button type="submit">Consultar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel result-panel" aria-labelledby="resultado-titulo">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Respuesta del motor</p>
+          <h2 id="resultado-titulo">Resultado</h2>
+        </div>
+      </div>
+      <pre id="result" aria-live="polite">Aún no hay una consulta.</pre>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
