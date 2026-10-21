@@ -1,36 +1,64 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Almacen | Sistema experto</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <main class="shell">
-    <section class="intro">
-      <p class="eyebrow">Sistema experto</p>
-      <h1>Decisiones de almacén</h1>
-      <p class="lead">Consulta ubicación, reposición y movimiento usando las reglas de Prolog.</p>
-    </section>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Inicio del almacén">
+        <span class="brand-mark">AL</span>
+        <span>ALMACEN / LOGICA</span>
+      </a>
+      <span class="system-state"><i></i> SWI-PROLOG / ONLINE</span>
+    </header>
 
-    <section class="panel" aria-labelledby="consulta-titulo">
-      <div class="panel-heading">
-        <div>
-          <p class="eyebrow">Consulta controlada</p>
-          <h2 id="consulta-titulo">Selecciona un producto</h2>
-        </div>
-        <span id="status" class="status">Listo</span>
+    <section class="hero-grid">
+      <div class="intro">
+        <p class="eyebrow">Sistema experto</p>
+        <h1>Decisiones de almacén</h1>
+        <p class="lead">Una lectura lógica del inventario para mover cada producto al lugar correcto.</p>
       </div>
-      <form id="query-form">
-        <label for="product-id">ID del producto</label>
-        <div class="form-row">
-          <input id="product-id" name="id" type="number" min="1" max="20" value="1" required>
-          <button type="submit">Consultar</button>
-        </div>
-      </form>
+      <div class="warehouse-scene" aria-hidden="true">
+        <span class="sticker sticker-fragile">FRAGIL</span>
+        <span class="sticker sticker-fifo">FIFO</span>
+        <span class="sticker sticker-cold">FRIO</span>
+        <div class="box box-large"><b>01</b><span>STOCK</span></div>
+        <div class="box box-small"><b>+</b><span>LOG</span></div>
+        <div class="box box-flat"><b>20</b><span>ITEMS</span></div>
+        <div class="floor-line"></div>
+      </div>
     </section>
 
+    <section class="workspace-grid">
+      <section class="panel query-panel" aria-labelledby="consulta-titulo">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Consulta controlada</p>
+            <h2 id="consulta-titulo">Selecciona un producto</h2>
+          </div>
+          <span id="status" class="status">Listo</span>
+        </div>
+        <form id="query-form">
+          <label for="product-id">ID del producto</label>
+          <div class="form-row">
+            <input id="product-id" name="id" type="number" min="1" max="20" value="1" required>
+            <button type="submit"><span>Consultar</span><b>Enter</b></button>
+          </div>
+        </form>
+        <div class="query-note"><span class="dot"></span> Rango disponible: 01 - 20</div>
+        </div>
+      </section>
+      </div>
+      <section class="terminal-panel" aria-labelledby="resultado-titulo">
+        <div class="terminal-topbar">
+          <div class="terminal-lights"><i></i><i></i><i></i></div>
+          <span id="resultado-titulo">prolog@almacen:~</span>
+          <span class="terminal-tag">JSON</span>
+        </div>
+        <pre id="result" aria-live="polite">Aún no hay una consulta.</pre>
+      </section>
+    </section>
+
+    <footer class="footer-line">
+      <span>INVENTARIO INTELIGENTE</span>
+      <span>PARADIGMAS DE PROGRAMACION / 2026</span>
+    </footer>
     <section class="panel result-panel" aria-labelledby="resultado-titulo">
       <div class="panel-heading">
         <div>
