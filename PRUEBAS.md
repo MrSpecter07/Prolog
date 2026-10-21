@@ -79,7 +79,3 @@ Guardar las capturas o respuestas exportadas en una carpeta como `docs/evidencia
 | ID | Descripcion | Causa | Solucion | Estado |
 |---|---|---|---|---|
 | I01 | `json_write_string/2` no existe en SWI-Prolog | Predicado no disponible en la biblioteca JSON | Se cambio a `json_write/2` con `with_output_to/2` | Resuelta |
-
-## Nota sobre Vercel
-
-La interfaz puede desplegarse en Vercel, pero el backend debe ejecutarse en un entorno que pueda iniciar SWI-Prolog. Antes de marcar las pruebas como aprobadas, confirmar que la API publica realmente ejecuta `ALMACEN.pl` y no una respuesta simulada.
