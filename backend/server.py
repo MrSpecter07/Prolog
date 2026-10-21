@@ -63,6 +63,8 @@ class Handler(SimpleHTTPRequestHandler):
                 ["swipl", "-q", "-s", str(PROLOG_FILE), "-g", query],
                 capture_output=True,
                 text=True,
+                encoding="utf-8",
+                errors="replace",
                 timeout=10,
                 check=False,
             )
@@ -78,8 +80,9 @@ class Handler(SimpleHTTPRequestHandler):
             return
 
         try:
-            response = json.loads(result.stdout.strip().splitlines()[-1])
-        except (IndexError, json.JSONDecodeError):
+            output = (result.stdout or "").strip()
+            response = json.loads(output)
+        except (AttributeError, json.JSONDecodeError):
             self.send_json(502, {"status": "error", "message": "Prolog devolvio una respuesta invalida"})
             return
 

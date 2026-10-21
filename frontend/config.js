@@ -1,1 +1,1 @@
-window.BACKEND_URL = "";
+window.BACKEND_URL = "https://prolog-d7v2.onrender.com";
