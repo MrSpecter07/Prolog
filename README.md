@@ -103,6 +103,22 @@ La aplicación se publicará mediante una plataforma compatible con el backend y
 
 La asistencia generativa podrá utilizarse para documentación, configuración de GitHub, interfaz, integración frontend-backend, Docker, despliegue y análisis de infraestructura. No se utilizará para producir, completar o corregir los hechos, reglas ni predicados de los archivos `.pl`.
 
+## Ramas de trabajo
+
+El repositorio utiliza tres ramas:
+
+- `dev`: desarrollo de módulos y cambios nuevos.
+- `test`: integración y validación de los cambios provenientes de `dev`.
+- `main`: producción y versión estable que se publicará.
+
+El flujo de trabajo será:
+
+```text
+dev -> test -> main
+```
+
+Cada módulo se desarrollará en `dev`, se probará en `test` y pasará a `main` únicamente después de validar su funcionamiento.
+
 ## Historial de trabajo
 
 Los cambios se registrarán en commits separados por módulo para que el avance del proyecto sea identificable:
