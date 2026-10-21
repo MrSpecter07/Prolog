@@ -12,7 +12,7 @@ Este documento se utilizara para validar el sistema experto desde la URL despleg
 | Navegador | Pendiente |
 | Dispositivo | Pendiente |
 | Responsable | Pendiente |
-| Version o commit | `4d6c58c` |
+| Version o commit | Pendiente de commit |
 
 ## Criterios de estado
 
@@ -25,16 +25,16 @@ Este documento se utilizara para validar el sistema experto desde la URL despleg
 
 | ID | Escenario | Entrada | Resultado esperado | Resultado obtenido | Estado | Evidencia |
 |---|---|---|---|---|---|---|
-| P01 | Producto valido con existencias bajas | ID 1 | Devuelve reposicion critica y decisiones compatibles | Falla `json_write_string/2` | Fallida | Consola local |
-| P02 | Producto valido con existencias suficientes | ID 2 | Devuelve una recomendacion de inventario | Falla `json_write_string/2` | Fallida | Consola local |
-| P03 | Producto de alta rotacion | ID 3 | Devuelve decisiones relacionadas con acceso y reposicion | Falla `json_write_string/2` | Fallida | Consola local |
-| P04 | Producto fragil | ID 4 | Incluye una instruccion de empaque | Falla `json_write_string/2` | Fallida | Consola local |
-| P05 | Producto voluminoso | ID 5 | Incluye ubicacion o movimiento para volumen | Falla `json_write_string/2` | Fallida | Consola local |
-| P06 | Producto refrigerado | ID 6 | Incluye una ubicacion fria | Falla `json_write_string/2` | Fallida | Consola local |
-| P07 | Producto con prioridad alta | ID 7 | Incluye despacho expedito | Falla `json_write_string/2` | Fallida | Consola local |
-| P08 | Producto con datos incompletos | ID 8 | Devuelve estado `invalid` | Falla `json_write_string/2` | Fallida | Consola local |
-| P09 | Producto con datos invalidos | ID 9 | Devuelve estado `invalid` y el error correspondiente | Falla `json_write_string/2` | Fallida | Consola local |
-| P10 | Producto inexistente | ID 99 | Devuelve estado `error` sin fallar el servicio | Falla `json_write_string/2` | Fallida | Consola local |
+| P01 | Producto valido con existencias bajas | ID 1 | Devuelve reposicion critica y decisiones compatibles | JSON `success`, reposicion critica y movimiento FIFO | Aprobada | Consola local |
+| P02 | Producto valido con existencias suficientes | ID 2 | Devuelve una recomendacion de inventario | JSON `success` con inventario saludable y monitoreo | Aprobada | Consola local |
+| P03 | Producto de alta rotacion | ID 3 | Devuelve decisiones relacionadas con acceso y reposicion | JSON `success` con acceso y stock saludable | Aprobada | Consola local |
+| P04 | Producto fragil | ID 4 | Incluye una instruccion de empaque | JSON `success` con empaque de fragil | Aprobada | Consola local |
+| P05 | Producto voluminoso | ID 5 | Incluye ubicacion o movimiento para volumen | JSON `success` con zona de voluminosos y manipulacion | Aprobada | Consola local |
+| P06 | Producto refrigerado | ID 6 | Incluye una ubicacion fria | JSON `success` con zona fria | Aprobada | Consola local |
+| P07 | Producto con prioridad alta | ID 7 | Incluye despacho expedito | JSON `success` con despacho expedito | Aprobada | Consola local |
+| P08 | Producto con datos incompletos | ID 8 | Devuelve estado `invalid` | JSON `invalid` con datos incompletos | Aprobada | Consola local |
+| P09 | Producto con datos invalidos | ID 9 | Devuelve estado `invalid` y el error correspondiente | JSON `invalid` con dos errores | Aprobada | Consola local |
+| P10 | Producto inexistente | ID 99 | Devuelve estado `error` sin fallar el servicio | JSON `error` con ID inexistente | Aprobada | Consola local |
 
 ## Backtracking
 
@@ -48,7 +48,7 @@ Registrar todas las soluciones obtenidas al presionar `;`:
 
 | Consulta | Soluciones obtenidas | Coincide con la API | Evidencia |
 |---|---|---|---|
-| `movimiento(11, Resultado).` | Manipulacion, empaque y despacho expedito | Pendiente | Consola local |
+| `movimiento(11, Resultado).` | Manipulacion, empaque y despacho expedito | Pendiente hasta probar API | Consola local |
 
 ## Comparacion local y desplegada
 
@@ -78,7 +78,7 @@ Guardar las capturas o respuestas exportadas en una carpeta como `docs/evidencia
 
 | ID | Descripcion | Causa | Solucion | Estado |
 |---|---|---|---|---|
-| I01 | `json_write_string/2` no existe en SWI-Prolog | Adaptador JSON sin predicado disponible | Pendiente de correccion por el equipo | Abierta |
+| I01 | `json_write_string/2` no existe en SWI-Prolog | Predicado no disponible en la biblioteca JSON | Se cambio a `json_write/2` con `with_output_to/2` | Resuelta |
 
 ## Nota sobre Vercel
 

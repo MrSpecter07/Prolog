@@ -93,13 +93,13 @@ movimiento(ID, 'FLUJO ESTÁNDAR: Manipulación normal FIFO (Primeras entradas, p
 % adaptador json.
 obtener_json_decisiones(ID, JSON) :-
     \+ producto(ID, _, _, _, _, _, _, _),
-    json_write_string(json([status=error, message='ERROR: El ID de producto no existe en el sistema']), JSON).
+    with_output_to(string(JSON), json_write(current_output, json([status=error, message='ERROR: El ID de producto no existe en el sistema']))).
 
 obtener_json_decisiones(ID, JSON) :-
     producto(ID, _, _, _, _, _, _, _),
     findall(Err, es_invalido(ID, Err), Errores),
     Errores \= [],
-    json_write_string(json([status=invalid, errors=Errores]), JSON).
+    with_output_to(string(JSON), json_write(current_output, json([status=invalid, errors=Errores]))).
 
 obtener_json_decisiones(ID, JSON) :-
     producto(ID, Nombre, Ex, Rot, Emp, Vol, Amb, Pri),
@@ -107,7 +107,7 @@ obtener_json_decisiones(ID, JSON) :-
     findall(Ubi, ubicacion(ID, Ubi), Ubicaciones),
     findall(Rep, reposicion(ID, Rep), Reposiciones),
     findall(Mov, movimiento(ID, Mov), Movimientos),
-    json_write_string(json([
+    with_output_to(string(JSON), json_write(current_output, json([
         status=success,
         data=json([
             id=ID,
@@ -122,7 +122,7 @@ obtener_json_decisiones(ID, JSON) :-
             reposiciones=Reposiciones,
             movimientos=Movimientos
         ])
-    ]), JSON).
+    ]))).
 
 % interfaz consulta.
 consultar_producto(ID) :-
