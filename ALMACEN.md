@@ -44,10 +44,6 @@ interfaz       Captura y presentacion
 pruebas        Casos y resultados
 ```
 
-## Limite academico
-
-Este documento define el dominio, pero no contiene hechos, reglas ni predicados Prolog. La base de conocimiento y el razonamiento logico deben ser elaborados, comprendidos y modificados autonomamente por el equipo.
-
 ## Primeros casos de prueba
 
 El equipo documentara como minimo los siguientes escenarios:
@@ -62,3 +58,14 @@ El equipo documentara como minimo los siguientes escenarios:
 8. Datos incompletos.
 9. Valores no validos.
 10. Consulta con varias recomendaciones.
+
+## Tareas para test
+
+Estas actividades quedan pendientes para la rama `test` y no forman parte de este avance:
+
+- Validar el JSON generado por el adaptador.
+- Separar errores, ubicaciones y movimientos como arreglos JSON.
+- Ejecutar las consultas directamente en SWI-Prolog.
+- Comprobar el backtracking con varias soluciones.
+- Registrar las diez pruebas con resultados obtenidos.
+- Reunir evidencias de la consola, interfaz y despliegue.
