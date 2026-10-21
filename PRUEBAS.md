@@ -13,7 +13,7 @@ Este documento se utilizara para validar el sistema experto desde la URL despleg
 | Navegador | Pendiente |
 | Dispositivo | PowerShell y navegador |
 | Responsable | Pendiente |
-| Version o commit | `533d8c9` |
+| Version o commit | `b6c9a59` |
 
 ## Criterios de estado
 
@@ -67,13 +67,13 @@ Guardar las capturas o respuestas exportadas en una carpeta como `docs/evidencia
 
 - [x] Interfaz desplegada.
 - [x] Consulta valida.
-- [ ] Consulta con multiples recomendaciones.
-- [ ] Datos incompletos.
-- [ ] Valores invalidos.
-- [ ] Producto inexistente.
-- [ ] Consulta directa en SWI-Prolog.
-- [ ] Backtracking.
-- [ ] Acceso desde otro dispositivo.
+- [x] Consulta con multiples recomendaciones.
+- [x] Datos incompletos.
+- [x] Valores invalidos.
+- [x] Producto inexistente.
+- [x] Consulta directa en SWI-Prolog.
+- [x] Backtracking.
+- [x] Acceso desde otro dispositivo.
 
 - [x] Conexion CORS entre Vercel y Render.
 
