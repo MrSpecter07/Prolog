@@ -1,6 +1,7 @@
 const form = document.querySelector("#query-form");
 const result = document.querySelector("#result");
 const status = document.querySelector("#status");
+const API_BASE_URL = window.BACKEND_URL || "";
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -9,7 +10,7 @@ form.addEventListener("submit", async (event) => {
   result.textContent = "Procesando consulta...";
 
   try {
-    const response = await fetch("/api/consultar", {
+    const response = await fetch(`${API_BASE_URL}/api/consultar`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id })

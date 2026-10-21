@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FRONTEND = ROOT / "frontend"
 PROLOG_FILE = ROOT / "ALMACEN.pl"
 PORT = int(os.environ.get("PORT", "8000"))
+FRONTEND_ORIGIN = os.environ.get("FRONTEND_ORIGIN", "*")
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -20,6 +21,9 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(content)))
+        self.send_header("Access-Control-Allow-Origin", FRONTEND_ORIGIN)
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
         self.wfile.write(content)
 
@@ -28,6 +32,13 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_json(200, {"status": "ok", "service": "almacen"})
             return
         super().do_GET()
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.send_header("Access-Control-Allow-Origin", FRONTEND_ORIGIN)
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
 
     def do_POST(self):
         if self.path != "/api/consultar":
