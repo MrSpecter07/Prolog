@@ -6,13 +6,13 @@ Este documento se utilizara para validar el sistema experto desde la URL despleg
 
 | Campo | Valor |
 |---|---|
-| Fecha | Pendiente |
+| Fecha | 2026-10-20 |
 | URL publica | Pendiente |
-| Rama probada | `test` / `main` |
+| Rama probada | `dev` |
 | Navegador | Pendiente |
 | Dispositivo | Pendiente |
 | Responsable | Pendiente |
-| Version o commit | Pendiente |
+| Version o commit | `4d6c58c` |
 
 ## Criterios de estado
 
@@ -25,16 +25,16 @@ Este documento se utilizara para validar el sistema experto desde la URL despleg
 
 | ID | Escenario | Entrada | Resultado esperado | Resultado obtenido | Estado | Evidencia |
 |---|---|---|---|---|---|---|
-| P01 | Producto valido con existencias bajas | ID 1 | Devuelve reposicion critica y decisiones compatibles | Pendiente | Pendiente | Pendiente |
-| P02 | Producto valido con existencias suficientes | ID 2 | Devuelve una recomendacion de inventario | Pendiente | Pendiente | Pendiente |
-| P03 | Producto de alta rotacion | ID 3 | Devuelve decisiones relacionadas con acceso y reposicion | Pendiente | Pendiente | Pendiente |
-| P04 | Producto fragil | ID 4 | Incluye una instruccion de empaque | Pendiente | Pendiente | Pendiente |
-| P05 | Producto voluminoso | ID 5 | Incluye ubicacion o movimiento para volumen | Pendiente | Pendiente | Pendiente |
-| P06 | Producto refrigerado | ID 6 | Incluye una ubicacion fria | Pendiente | Pendiente | Pendiente |
-| P07 | Producto con prioridad alta | ID 7 | Incluye despacho expedito | Pendiente | Pendiente | Pendiente |
-| P08 | Producto con datos incompletos | ID 8 | Devuelve estado `invalid` | Pendiente | Pendiente | Pendiente |
-| P09 | Producto con datos invalidos | ID 9 | Devuelve estado `invalid` y el error correspondiente | Pendiente | Pendiente | Pendiente |
-| P10 | Producto inexistente | ID 99 | Devuelve estado `error` sin fallar el servicio | Pendiente | Pendiente | Pendiente |
+| P01 | Producto valido con existencias bajas | ID 1 | Devuelve reposicion critica y decisiones compatibles | Falla `json_write_string/2` | Fallida | Consola local |
+| P02 | Producto valido con existencias suficientes | ID 2 | Devuelve una recomendacion de inventario | Falla `json_write_string/2` | Fallida | Consola local |
+| P03 | Producto de alta rotacion | ID 3 | Devuelve decisiones relacionadas con acceso y reposicion | Falla `json_write_string/2` | Fallida | Consola local |
+| P04 | Producto fragil | ID 4 | Incluye una instruccion de empaque | Falla `json_write_string/2` | Fallida | Consola local |
+| P05 | Producto voluminoso | ID 5 | Incluye ubicacion o movimiento para volumen | Falla `json_write_string/2` | Fallida | Consola local |
+| P06 | Producto refrigerado | ID 6 | Incluye una ubicacion fria | Falla `json_write_string/2` | Fallida | Consola local |
+| P07 | Producto con prioridad alta | ID 7 | Incluye despacho expedito | Falla `json_write_string/2` | Fallida | Consola local |
+| P08 | Producto con datos incompletos | ID 8 | Devuelve estado `invalid` | Falla `json_write_string/2` | Fallida | Consola local |
+| P09 | Producto con datos invalidos | ID 9 | Devuelve estado `invalid` y el error correspondiente | Falla `json_write_string/2` | Fallida | Consola local |
+| P10 | Producto inexistente | ID 99 | Devuelve estado `error` sin fallar el servicio | Falla `json_write_string/2` | Fallida | Consola local |
 
 ## Backtracking
 
@@ -48,7 +48,7 @@ Registrar todas las soluciones obtenidas al presionar `;`:
 
 | Consulta | Soluciones obtenidas | Coincide con la API | Evidencia |
 |---|---|---|---|
-| `ubicacion(13, Resultado).` | Pendiente | Pendiente | Pendiente |
+| `movimiento(11, Resultado).` | Manipulacion, empaque y despacho expedito | Pendiente | Consola local |
 
 ## Comparacion local y desplegada
 
@@ -78,7 +78,7 @@ Guardar las capturas o respuestas exportadas en una carpeta como `docs/evidencia
 
 | ID | Descripcion | Causa | Solucion | Estado |
 |---|---|---|---|---|
-| I01 | Pendiente | Pendiente | Pendiente | Pendiente |
+| I01 | `json_write_string/2` no existe en SWI-Prolog | Adaptador JSON sin predicado disponible | Pendiente de correccion por el equipo | Abierta |
 
 ## Nota sobre Vercel
 
