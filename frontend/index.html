@@ -1,7 +1,15 @@
 <!doctype html>
 <html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Almacen | Sistema experto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
     <header class="topbar">
-      <a class="brand" href="/" aria-label="Inicio del almacén">
+      <a class="brand" href="/" aria-label="Inicio del almacen">
         <span class="brand-mark">AL</span>
         <span>ALMACEN / LOGICA</span>
       </a>
@@ -11,8 +19,8 @@
     <section class="hero-grid">
       <div class="intro">
         <p class="eyebrow">Sistema experto</p>
-        <h1>Decisiones de almacén</h1>
-        <p class="lead">Una lectura lógica del inventario para mover cada producto al lugar correcto.</p>
+        <h1>Decisiones de almacen</h1>
+        <p class="lead">Una lectura logica del inventario para mover cada producto al lugar correcto.</p>
       </div>
       <div class="warehouse-scene" aria-hidden="true">
         <span class="sticker sticker-fragile">FRAGIL</span>
@@ -42,16 +50,15 @@
           </div>
         </form>
         <div class="query-note"><span class="dot"></span> Rango disponible: 01 - 20</div>
-        </div>
       </section>
-      </div>
+
       <section class="terminal-panel" aria-labelledby="resultado-titulo">
         <div class="terminal-topbar">
           <div class="terminal-lights"><i></i><i></i><i></i></div>
           <span id="resultado-titulo">prolog@almacen:~</span>
           <span class="terminal-tag">JSON</span>
         </div>
-        <pre id="result" aria-live="polite">Aún no hay una consulta.</pre>
+        <pre id="result" aria-live="polite">Aun no hay una consulta.</pre>
       </section>
     </section>
 
@@ -59,15 +66,6 @@
       <span>INVENTARIO INTELIGENTE</span>
       <span>PARADIGMAS DE PROGRAMACION / 2026</span>
     </footer>
-    <section class="panel result-panel" aria-labelledby="resultado-titulo">
-      <div class="panel-heading">
-        <div>
-          <p class="eyebrow">Respuesta del motor</p>
-          <h2 id="resultado-titulo">Resultado</h2>
-        </div>
-      </div>
-      <pre id="result" aria-live="polite">Aún no hay una consulta.</pre>
-    </section>
   </main>
   <script src="config.js"></script>
   <script src="app.js"></script>
